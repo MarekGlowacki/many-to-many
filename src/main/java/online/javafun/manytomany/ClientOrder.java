@@ -43,8 +43,9 @@ class ClientOrder {
         this.orderDetails = orderDetails;
     }
 
-    public void addProduct(Product product) {
+    void addProduct(Product product) {
         products.add(product);
+        product.addOrder(this);
     }
 
     @Override

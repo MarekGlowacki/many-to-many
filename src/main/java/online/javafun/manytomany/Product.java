@@ -1,6 +1,8 @@
 package online.javafun.manytomany;
 
 import jakarta.persistence.*;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 class Product {
@@ -10,6 +12,8 @@ class Product {
     private String name;
     private Double price;
     private String details;
+    @ManyToMany(mappedBy = "products")
+    private List<ClientOrder> orders = new ArrayList<>();
 
     public Product() {}
 
@@ -49,6 +53,18 @@ class Product {
 
     public void setDetails(String details) {
         this.details = details;
+    }
+
+    public List<ClientOrder> getOrders() {
+        return orders;
+    }
+
+    public void setOrders(List<ClientOrder> orders) {
+        this.orders = orders;
+    }
+
+    void addOrder(ClientOrder clientOrder) {
+        orders.add(clientOrder);
     }
 
     @Override
