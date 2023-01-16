@@ -8,3 +8,6 @@ class ManyToManyApplicationTests {
 
     @Test
     void contextLoads() {
+    }
+
+}
